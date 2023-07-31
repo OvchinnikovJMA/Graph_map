@@ -268,7 +268,11 @@ void SearchGraph::resizeEvent(QResizeEvent *event)
  */
 void SearchGraph::mousePressEvent(QMouseEvent *event)
 {
-	if(scaled) return;
+	if(scaled)
+	{
+		showMessage("После изменения масштаба нельзя изменить путь", 1000);
+		return;
+	}
 	if(square_side == 0) return;
 
 	auto rect = getRect(event->pos());
